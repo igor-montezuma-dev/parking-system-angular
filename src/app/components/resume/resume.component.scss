@@ -1,0 +1,64 @@
+.resume-container {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #313a49;
+    margin-bottom: 10px;
+  }
+
+  .diary-value {
+    display: flex;
+
+    font-size: 16px;
+    color: #939caa;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .resume-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .info-block {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      border-radius: 6px;
+      background-color: #f9f9f9;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .occupied, .open, .total_vacancy, .total {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      h2 {
+        font-size: 18px;
+        font-weight: 700;
+        color: #313a49;
+      }
+
+      p {
+        font-size: 16px;
+        font-weight: 600;
+        color: #535b6b;
+      }
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e0e0e0;
+      margin: 10px 0;
+    }
+  }
+}
