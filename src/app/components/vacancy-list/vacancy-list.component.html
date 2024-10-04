@@ -1,0 +1,27 @@
+<div class="grid-container">
+  <div
+    *ngFor="let vacancy of vacancies; let i = index"
+    class="grid-item"
+    (click)="onVacancyClick($event, i)"
+    [attr.data-id]="i"
+  >
+    <mat-icon [style.color]="getIconColor(vacancy)" [matMenuTriggerFor]="menu"
+      >directions_car</mat-icon
+    >
+  </div>
+</div>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="openDialog()">
+    <mat-icon color="primary">info</mat-icon>
+    <span>Detalhes</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon color="accent">check</mat-icon>
+    <span>Ocupar</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon class="yellow-icon">warning</mat-icon>
+    <span>Manutenção</span>
+  </button>
+</mat-menu>

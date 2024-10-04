@@ -1,0 +1,17 @@
+.grid-container {
+  width: 60%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+
+.grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+mat-icon {
+  cursor: pointer;
+}
