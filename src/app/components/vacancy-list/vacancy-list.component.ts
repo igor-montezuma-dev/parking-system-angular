@@ -3,8 +3,8 @@ import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { MaterialModule } from '../../material.module';
-import VacancyDetailsDialogComponent from '../../shared/vacancy-details-dialog/vacancy-details-dialog.component';
 import { FillVacancyFormComponent } from '../../shared/fill-vacancy-form/fill-vacancy-form.component';
+import VacancyDetailsDialogComponent from '../../shared/vacancy-details-dialog/vacancy-details-dialog.component';
 
 @Component({
   selector: 'app-vacancy-list',
@@ -71,7 +71,7 @@ export default class VacancyListComponent implements OnInit {
   openFillVacancyDialog(): void {
     this.dialog.open(FillVacancyFormComponent, {
       width: '932px',
-      height: '508px',
+      height: '600px',
     });
   }
 }
