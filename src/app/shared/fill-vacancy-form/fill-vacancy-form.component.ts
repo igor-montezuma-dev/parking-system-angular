@@ -9,8 +9,8 @@ import {
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MaterialModule } from '../../material.module';
 import { NgxMaskDirective } from 'ngx-mask';
+import { MaterialModule } from '../../material.module';
 
 @Component({
   selector: 'app-fill-vacancy-form',
@@ -42,9 +42,9 @@ export class FillVacancyFormComponent implements OnInit {
     this.searchRegisterForm = this.fb.group({
       licensePlate: ['', Validators.required],
       document: ['', Validators.required],
-      name: [''],
-      phone: [''],
-      color: [''],
+      name: ['', Validators.required],
+      phone: ['', Validators.required],
+      color: ['', Validators.required],
     });
 
     this.createNewRegisterForm = this.fb.group({
@@ -65,5 +65,5 @@ export class FillVacancyFormComponent implements OnInit {
     this.isSearching = false;
   }
 
-  
+
 }
