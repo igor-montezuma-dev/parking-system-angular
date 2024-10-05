@@ -1,1 +1,68 @@
-<p>fill-vacancy-form works!</p>
+<div class="content">
+  <h1 class="vacancy-title">Vaga: 01</h1>
+  <div class="form-container">
+    <form [formGroup]="searchRegisterForm">
+      <mat-form-field appearance="fill">
+        <mat-label>placa</mat-label>
+        <input
+          matInput
+          placeholder="Informe a placa"
+          formControlName="licensePlate"
+          mask="AAA-0000"
+        />
+        <mat-icon matSuffix>badge</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Documento</mat-label>
+        <input
+          matInput
+          placeholder="Informe o documento"
+          formControlName="document"
+          mask="000.000.000-00"
+        />
+        <mat-icon matSuffix>person_outlined</mat-icon>
+      </mat-form-field>
+
+      @if(isCreating){
+      <mat-form-field appearance="fill">
+        <mat-label>nome</mat-label>
+        <input
+          matInput
+          placeholder="Informe o nome do proproetário"
+          formControlName="name"
+        />
+        <mat-icon matSuffix>badge</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>phone</mat-label>
+        <input
+          matInput
+          placeholder="Informe o telefone do proproetário"
+          formControlName="Celular"
+          mask="(00) 00000-0000"
+        />
+        <mat-icon matSuffix>phone</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Cor</mat-label>
+        <input
+          matInput
+          placeholder="Informe a cor do veículo"
+          formControlName="color"
+        />
+        <mat-icon matSuffix>directions_car</mat-icon>
+      </mat-form-field>
+      }
+    </form>
+
+    <div class="button-container">
+      @if(isSearching){
+      <mat-spinner></mat-spinner>
+      } @if (isCreating) {
+      <button mat-flat-button>Enviar</button>
+      }@else{
+      <button mat-flat-button (click)="searchRegister()">Buscar</button>
+      }
+    </div>
+  </div>
+</div>

@@ -12,11 +12,11 @@
 </div>
 
 <mat-menu #menu="matMenu">
-  <button mat-menu-item (click)="openDialog()">
+  <button mat-menu-item (click)="openDetailsDialog()">
     <mat-icon color="primary">info</mat-icon>
     <span>Detalhes</span>
   </button>
-  <button mat-menu-item>
+  <button mat-menu-item (click)="openFillVacancyDialog()">
     <mat-icon color="accent">check</mat-icon>
     <span>Ocupar</span>
   </button>
