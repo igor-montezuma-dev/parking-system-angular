@@ -1,11 +1,51 @@
 <div class="grid-container">
   <div
-    *ngFor="let vacancy of vacancies; let i = index"
+    *ngFor="let parkingSpot of parkingSpots"
+    class="grid-item"
+    (click)="onVacancyClick($event, parkingSpot.id)"
+    [attr.data-id]="parkingSpot.id"
+    [matMenuTriggerFor]="menu"
+  >
+    <mat-icon [style.color]="getIconColor(parkingSpot.type)">
+      directions_car
+    </mat-icon>
+  </div>
+</div>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="openDetailsDialog()">
+    <mat-icon color="primary">info</mat-icon>
+    <span>Detalhes</span>
+  </button>
+  <button mat-menu-item (click)="openFillVacancyDialog()">
+    <mat-icon color="accent">check</mat-icon>
+    <span>Ocupar</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon class="yellow-icon">warning</mat-icon>
+    <span>Manutenção</span>
+  </button>
+</mat-menu>
+
+<!-- <div class="grid-container">
+  @for(parkingSpot of parkingSpots; track parkingSpot.id){
+  <div
+    class="grid-item"
+    (click)="onVacancyClick($event, index)"
+    [attr.data-id]="parkingSpot.id"
+  >
+    <mat-icon [style.color]="getIconColor(parkingSpot.type)"
+      >directions_car</mat-icon
+    >
+  </div>
+  }
+  <div
+    *ngFor="let parkingSpot of parkingSpots; let i = index"
     class="grid-item"
     (click)="onVacancyClick($event, i)"
     [attr.data-id]="i"
   >
-    <mat-icon [style.color]="getIconColor(vacancy)" [matMenuTriggerFor]="menu"
+    <mat-icon [style.color]="getIconColor(parkingSpot.status)" [matMenuTriggerFor]="menu"
       >directions_car</mat-icon
     >
   </div>
@@ -24,4 +64,4 @@
     <mat-icon class="yellow-icon">warning</mat-icon>
     <span>Manutenção</span>
   </button>
-</mat-menu>
+</mat-menu> -->
