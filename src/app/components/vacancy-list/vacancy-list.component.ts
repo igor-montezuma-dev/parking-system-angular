@@ -1,7 +1,12 @@
-
-
 import { CommonModule } from '@angular/common';
-import { Component, computed, inject, Input, OnInit, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  inject,
+  Input,
+  OnInit,
+  signal,
+} from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { parkinSpot } from '../../core/model/vacancy';
@@ -22,8 +27,6 @@ export default class VacancyListComponent implements OnInit {
   @Input() parkingSpots: parkinSpot[] = [];
   //parkingSpots = input<parkinSpot[]>([]);
 
-
-
   id!: number;
   selectedVacancy = signal<number | null>(null);
 
@@ -32,44 +35,57 @@ export default class VacancyListComponent implements OnInit {
   ngOnInit(): void {
     this.initializeReservedVacancies();
     //this.openDialog();
-
   }
 
   initializeReservedVacancies(): void {
-    this.parkingSpots
-
+    this.parkingSpots;
   }
 
-  getIconColor(type: string): string {
-    switch (type) {
-      case 'normal':
+  getIconColor(status: string): string {
+    switch (status) {
+      case 'available':
         return 'green';
       case 'occupied':
+        return 'grey';
+
+      case 'inactive':
         return 'red';
-      case 'pcd':
-        return 'blue';
-      case 'elderly':
-        return 'blue';
-      case 'maintenance':
-        return 'orange';
       default:
         return 'grey';
+    }
+  }
+
+  public getIconName(type: string): string {
+    switch (type) {
+      case 'occupied':
+        return 'directions_car';
+      case 'maintenance':
+        return 'build';
+      case 'available':
+        return 'directions_car';
+      case 'pcd':
+        return 'accessible';
+      case 'elderly':
+        return 'elderly';
+      default:
+        return 'directions_car';
     }
   }
 
   onVacancyClick(event: MouseEvent, id: number): void {
     const trigger = event.target as HTMLElement;
     if (trigger) {
-        const gridItem = trigger.closest('.grid-item');
-        if (gridItem) {
-            const menuTrigger = gridItem.querySelector('[matMenuTriggerFor]') as MatMenuTrigger | null;
-            if (menuTrigger) {
-                menuTrigger.openMenu();
-            }
+      const gridItem = trigger.closest('.grid-item');
+      if (gridItem) {
+        const menuTrigger = gridItem.querySelector(
+          '[matMenuTriggerFor]'
+        ) as MatMenuTrigger | null;
+        if (menuTrigger) {
+          menuTrigger.openMenu();
         }
+      }
     }
-}
-
+  }
 
   openDetailsDialog(): void {
     this.dialog.open(VacancyDetailsDialogComponent, {

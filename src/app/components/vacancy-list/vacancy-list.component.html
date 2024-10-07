@@ -6,8 +6,8 @@
     [attr.data-id]="parkingSpot.id"
     [matMenuTriggerFor]="menu"
   >
-    <mat-icon [style.color]="getIconColor(parkingSpot.type)">
-      directions_car
+    <mat-icon [style.color]="getIconColor(parkingSpot.status)">
+      {{ getIconName(parkingSpot.type) }}
     </mat-icon>
   </div>
 </div>
