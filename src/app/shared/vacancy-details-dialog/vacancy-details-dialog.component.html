@@ -9,14 +9,18 @@
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>
-        <mat-icon color="primary">check</mat-icon>
+      @if(vacancyStatus != 'available'){
+      <button mat-menu-item (click)="activateParkingSpot()">
+        <mat-icon class="green-icon">check</mat-icon>
         <span>Ativar</span>
       </button>
-      <button mat-menu-item (click)="updateVacancyStatus()">
+
+      }@else {
+      <button mat-menu-item (click)="disableParkingSpot()">
         <mat-icon class="yellow-icon">warning</mat-icon>
         <span>Manutenção</span>
       </button>
+      }
     </mat-menu>
   </div>
 

@@ -78,7 +78,30 @@ export default class VacancyDetailsDialogComponent
     });
   }
 
-  public updateVacancyStatus() {
+  public activateParkingSpot(){
+    this.vacancyId = Number(sessionStorage.getItem('vacancyNumber'));
+    console.log(this.vacancyId);
+
+    this.data = {
+      status: 'available',
+    }
+
+    this.parkingSpotService.updateVacancy(this.vacancyId, this.data).subscribe({
+      next: (data: any) => {
+        this.snackBar.open('Status atualizado com sucesso!', 'Fechar', {
+          duration: 2000,
+        });
+      },
+      error: (error: any) => {
+        this.snackBar.open('Erro ao realizar alteração de status.', 'Fechar', {
+          duration: 2000,
+        });
+      }
+    });
+  }
+
+
+  public disableParkingSpot() {
 
     this.vacancyId = Number(sessionStorage.getItem('vacancyNumber'));
     console.log(this.vacancyId);
