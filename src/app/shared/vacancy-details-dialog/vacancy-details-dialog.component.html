@@ -1,35 +1,6 @@
-<!-- <div class="content">
-  <h1 class="vacancy-title">Vaga: 01</h1>
-  <div class="form-container">
-    <form [formGroup]="searchRegisterForm">
-      <mat-form-field appearance="fill">
-        <mat-label>placa</mat-label>
-        <input
-          matInput
-          placeholder="Informe a placa"
-          formControlName="licensePlate"
-        />
-        <mat-icon matSuffix>badge</mat-icon>
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Documento</mat-label>
-        <input
-          matInput
-          placeholder="Informe o documento"
-          formControlName="document"
-        />
-        <mat-icon matSuffix>person_outlined</mat-icon>
-      </mat-form-field>
-    </form>
-
-    <div class="button-container">
-      <button mat-flat-button>Buscar</button>
-    </div>
-  </div>
-</div> -->
 <div class="content">
   <div class="header">
-    <h1 class="vacancy-title">Vaga: 01</h1>
+    <h1 class="vacancy-title">Vaga: {{ vacancyNumber }}</h1>
     <button
       mat-icon-button
       [matMenuTriggerFor]="menu"
@@ -39,10 +10,10 @@
     </button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item>
-        <mat-icon color="warn">error</mat-icon>
-        <span>Desativar</span>
+        <mat-icon color="primary">check</mat-icon>
+        <span>Ativar</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item (click)="updateVacancyStatus()">
         <mat-icon class="yellow-icon">warning</mat-icon>
         <span>Manutenção</span>
       </button>
@@ -50,7 +21,11 @@
   </div>
 
   <div class="button-container">
+    @if(vacancyStatus != 'available'){
+    <button mat-flat-button disabled="">Ocupar vaga</button>
+    }@else {
     <button mat-flat-button>Ocupar vaga</button>
+    }
   </div>
   <div class="button-container">
     <button mat-flat-button class="cancel-button">Liberar vaga</button>

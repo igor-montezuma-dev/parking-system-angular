@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { ResumeComponent } from '../../components/resume/resume.component';
 import VacancyListComponent from '../../components/vacancy-list/vacancy-list.component';
-import { parkingSpotResponse, parkinSpot } from '../../core/model/vacancy';
-import { VacancyService } from '../../shared/services/vacancy.service';
+import { parkingSpotResponse, ParkinSpot } from '../../core/model/vacancy';
+import { VacancyService } from '../../shared/services/vacancy/vacancy.service';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +15,7 @@ import { VacancyService } from '../../shared/services/vacancy.service';
 export default class HomeComponent implements OnInit {
   private parkingSpotService: VacancyService = inject(VacancyService);
 
-  public parkingSpots: parkinSpot[] = [];
+  public parkingSpots: ParkinSpot[] = [];
 
   ngOnInit(): void {
     this.getAllVacancies();
@@ -25,6 +25,17 @@ export default class HomeComponent implements OnInit {
     this.parkingSpotService.getAllVacancies().subscribe({
       next: (response: parkingSpotResponse) => {
         this.parkingSpots = response.parkingSpots;
+      },
+      error: (error: any) => {
+        console.error(error);
+      },
+    });
+  }
+
+  private getVacancyById(id: number): void {
+    this.parkingSpotService.getVacancyById(id).subscribe({
+      next: (response: ParkinSpot) => {
+        console.log(response);
       },
       error: (error: any) => {
         console.error(error);

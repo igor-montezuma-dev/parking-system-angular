@@ -1,8 +1,8 @@
 export type parkingSpotResponse = {
-  parkingSpots: parkinSpot[];
+  parkingSpots: ParkinSpot[];
 };
 
-export type parkinSpot = {
+export type ParkinSpot = {
   id: number;
   type: string;
   occupied: boolean;
