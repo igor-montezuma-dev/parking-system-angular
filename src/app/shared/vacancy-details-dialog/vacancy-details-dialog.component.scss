@@ -78,6 +78,10 @@
   color: #f7b731;
 }
 
+.green-icon {
+  color: #2ecc71;
+}
+
 .header{
   width: 100%;
   display: flex;
@@ -104,6 +108,12 @@
   .cancel-button {
     background-color: #ff5c5c;
     color: white;
+
+    &:disabled {
+      background-color: #d1c9c9;
+      color: white;
+      cursor: not-allowed;
+    }
   }
 
   .submit-button {

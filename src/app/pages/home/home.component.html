@@ -3,10 +3,15 @@
 </div>
 <div class="section">
   <div class="list-container">
-    <app-vacancy-list />
+    <app-vacancy-list [parkingSpots]="parkingSpots" />
   </div>
 
   <div class="resume-container">
-    <app-resume />
+    <app-resume
+      [totalVacancies]="totalAvailable"
+      [totalAvailable]="totalAvailable"
+      [totalOccupied]="totalOccupied"
+      [totalInactive]="totalInactive"
+    />
   </div>
 </div>
