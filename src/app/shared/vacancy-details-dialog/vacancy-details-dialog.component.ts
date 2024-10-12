@@ -55,11 +55,7 @@ export default class VacancyDetailsDialogComponent
   }
 
   ngOnDestroy(): void {
-    this.parkingSpotService.getAllVacancies().subscribe({
-      next: (data: any) => {
-        this.parkingSpotBehaviorService.setData(data);
-      },
-    })
+    this.parkingSpotBehaviorService.clearData();
   }
 
   public getParkingSpotData(): void {
@@ -78,13 +74,13 @@ export default class VacancyDetailsDialogComponent
     });
   }
 
-  public activateParkingSpot(){
+  public activateParkingSpot() {
     this.vacancyId = Number(sessionStorage.getItem('vacancyNumber'));
     console.log(this.vacancyId);
 
     this.data = {
       status: 'available',
-    }
+    };
 
     this.parkingSpotService.updateVacancy(this.vacancyId, this.data).subscribe({
       next: (data: any) => {
@@ -96,19 +92,17 @@ export default class VacancyDetailsDialogComponent
         this.snackBar.open('Erro ao realizar alteração de status.', 'Fechar', {
           duration: 2000,
         });
-      }
+      },
     });
   }
 
-
   public disableParkingSpot() {
-
     this.vacancyId = Number(sessionStorage.getItem('vacancyNumber'));
     console.log(this.vacancyId);
 
     this.data = {
       status: 'inactive',
-    }
+    };
 
     this.parkingSpotService.updateVacancy(this.vacancyId, this.data).subscribe({
       next: (data: any) => {
@@ -120,7 +114,7 @@ export default class VacancyDetailsDialogComponent
         this.snackBar.open('Erro ao realizar alteração de status.', 'Fechar', {
           duration: 2000,
         });
-      }
+      },
     });
   }
 }

@@ -26,12 +26,16 @@
 
   <div class="button-container">
     @if(vacancyStatus != 'available'){
-    <button mat-flat-button disabled="">Ocupar vaga</button>
+    <button mat-flat-button disabled>Ocupar vaga</button>
     }@else {
     <button mat-flat-button>Ocupar vaga</button>
     }
   </div>
   <div class="button-container">
+    @if(vacancyStatus != 'available'){
+    <button mat-flat-button class="cancel-button" disabled>Liberar vaga</button>
+    }@else {
     <button mat-flat-button class="cancel-button">Liberar vaga</button>
+    }
   </div>
 </div>

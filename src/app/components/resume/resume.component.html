@@ -2,19 +2,24 @@
   <h1>Resumo</h1>
   <p class="diary-value">Valor por hore hoje: R$ 5,00</p>
   <div class="resume-info">
-    <div class="occupied">
-      <h2>Vagas ocupadas:</h2>
-      <p>0</p>
+    <div class="total_vacancy">
+      <h2>Total de vagas:</h2>
+      <p>{{ totalVacancies() }}</p>
     </div>
     <hr />
     <div class="open">
       <h2>Vagas livres:</h2>
-      <p>40</p>
+      <p>{{ totalAvailable() }}</p>
     </div>
     <hr />
-    <div class="total_vacancy">
-      <h2>Total de vagas:</h2>
-      <p>40</p>
+    <div class="occupied">
+      <h2>Vagas ocupadas:</h2>
+      <p>{{ totalOccupied() }}</p>
+    </div>
+    <hr />
+    <div class="open">
+      <h2>Vagas Inativas:</h2>
+      <p>{{ totalInactive() }}</p>
     </div>
     <hr />
     <div class="total">

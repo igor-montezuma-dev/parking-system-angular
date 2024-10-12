@@ -17,6 +17,11 @@ export default class HomeComponent implements OnInit {
 
   public parkingSpots: ParkinSpot[] = [];
 
+  public totalVacancies!: number;
+  public totalAvailable!: number;
+  public totalOccupied!: number;
+  public totalInactive!: number;
+
   ngOnInit(): void {
     this.getAllVacancies();
   }
@@ -25,6 +30,11 @@ export default class HomeComponent implements OnInit {
     this.parkingSpotService.getAllVacancies().subscribe({
       next: (response: parkingSpotResponse) => {
         this.parkingSpots = response.parkingSpots;
+        this.totalAvailable = response.totalAvailable;
+        this.totalInactive = response.totalInactive;
+        this.totalOccupied = response.totalOccupied;
+        this.totalVacancies = response.totalVacancies;
+
       },
       error: (error: any) => {
         console.error(error);
